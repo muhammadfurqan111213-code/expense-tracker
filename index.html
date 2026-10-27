@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="top-header">
+        <div class="header-inner">
+            <div class="logo-mark">₹</div>
+            <div>
+                <h1>My Expense Tracker</h1>
+                <p>Keep an eye on where your money goes.</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="summary-card">
+            <div>
+                <p class="summary-label">Total expenses</p>
+                <h2 id="totalExpense">Rs. 0.00</h2>
+                <p class="small-note">
+                    Your saved expenses in one place
+                </p>
+            </div>
+            <div class="summary-icon">↗</div>
+        </section>
+
+        <section class="content-grid">
+
+            <!-- Expense Form -->
+            <section class="panel form-panel">
+                <div class="section-heading">
+                    <h2>Add an expense</h2>
+                    <p>Fill in the details below.</p>
+                </div>
+
+                <form id="expenseForm">
+
+                    <label for="expenseTitle">Expense title</label>
+                    <input
+                        type="text"
+                        id="expenseTitle"
+                        placeholder="e.g. Lunch with friends"
+                        required
+                    >
+
+                    <label for="expenseAmount">Amount (Rs.)</label>
+                    <input
+                        type="number"
+                        id="expenseAmount"
+                        placeholder="e.g. 500"
+                        min="0.01"
+                        step="0.01"
+                        required
+                    >
+
+                    <label for="expenseCategory">Category</label>
+                    <select id="expenseCategory" required>
+                        <option value="">Choose a category</option>
+                        <option value="Food">Food</option>
+                        <option value="Transport">Transport</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Bills">Bills</option>
+                        <option value="Education">Education</option>
+                        <option value="Health">Health</option>
+                        <option value="Other">Other</option>
+                    </select>
+
+                    <label for="expenseDate">Date</label>
+                    <input type="date" id="expenseDate" required>
+
+                    <button type="submit" class="add-button">
+                        + Add expense
+                    </button>
+
+                    <p id="formMessage" class="form-message"
+                       aria-live="polite"></p>
+                </form>
+            </section>
+
+            <!-- Expense Records -->
+            <section class="panel records-panel">
+                <div class="section-heading records-heading">
+                    <div>
+                        <h2>Expense records</h2>
+                        <p id="recordCount">0 records saved</p>
+                    </div>
+                    <span class="list-icon">☷</span>
+                </div>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Expense</th>
+                                <th>Category</th>
+                                <th>Date</th>
+                                <th>Amount</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="expenseList">
+                            <tr class="empty-row">
+                                <td colspan="5">
+                                    No expenses yet. Add your first one!
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="footer-note">
+                    Your records are saved on this device using localStorage.
+                </p>
+            </section>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>Made for everyday budgeting · My Expense Tracker</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
